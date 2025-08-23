@@ -1,7 +1,6 @@
 num = [0,0,0]
 
 for i in range(0,3):
-    print("Enter number", i+1, ": ",)
-    num[i] = int(input())
-for j in range(0,3,):
-    print("Number", j+1, "is", num[j])
+    num[i] = int(input("Enter number " + str(i+1) + ": "))
+for j in range(0,3):
+    print("Number " + str(j+1) + " is: " + str(num[j]))
