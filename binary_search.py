@@ -1,5 +1,6 @@
-List = [1,2,3,4,5,6,7,8,9,10]
 
+List = [8,5,3,4,5,6,7,9,1,2]
+List.sort()
 item = int(input("Enter a number to search: "))
 
 found=False
