@@ -12,3 +12,5 @@ for i in range(0,len(List)):
 
 for k in range(0,len(List)):
     print("num",k+1,"=", List[k])
+
+
