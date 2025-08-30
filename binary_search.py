@@ -10,7 +10,7 @@ mb = 0
 while lb<=ub and  found == False :
     mb = (ub + lb)//2
     if List[mb] == item:
-        print("Item found at position:", mb+1)
+        print("Item found at address:",mb+1)
         found = True
     elif List[mb] < item:
         lb = mb + 1
