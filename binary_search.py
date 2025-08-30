@@ -1,6 +1,5 @@
 
-List = [8,5,3,4,5,6,7,9,1,2]
-List.sort()
+List = [1,2,3,4,5,6,7]
 item = int(input("Enter a number to search: "))
 
 found=False
@@ -11,7 +10,7 @@ mb = 0
 while lb<=ub and  found == False :
     mb = (ub + lb)//2
     if List[mb] == item:
-        print("Item found at position: ", mb+1)
+        print("Item found at position:", mb+1)
         found = True
     elif List[mb] < item:
         lb = mb + 1
