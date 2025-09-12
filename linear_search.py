@@ -12,4 +12,4 @@ while not found and index < len(List):
         index += 1
 
 if not found:
-    print("Number not found in arrray")
+    print("Number not found in array")
