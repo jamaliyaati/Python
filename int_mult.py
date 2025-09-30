@@ -3,4 +3,4 @@
 
 num = 50
 ans = int((40.45*num))
-print(ans)
+print("the integer part of the answer is:",ans)
