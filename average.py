@@ -9,7 +9,7 @@ while not flag:
     else:
         count = count+1
         total = total + num
-if count ==0:
+if count == 0:
     print("you entered 0")
 else:
     print("the avg is: ",total/count)
