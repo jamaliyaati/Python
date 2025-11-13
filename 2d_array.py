@@ -1,7 +1,7 @@
 MemberId = [""] * 1000
 Name = [["", ""] for x in range(1000)] #a list of lists
 MemberCount = 0
-print("********* MemberShip Program *********")
+print("********* MemberShip Program ********* ")
 choice = 0
 while choice != 3: # Repeat menu until the user chooses to exit (choice == 3)
 
