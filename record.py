@@ -1,7 +1,7 @@
-class node:
-    def __init__(self,data,nextNode):
-        self.data = data
-        self.nextNode = nextNode
+class SaleData:
+    #public ID : STRING
+    #public Quantity : INTEGER
+    def __init__(self,ID,Quantity):
+        self.ID = ID
+        self.Quantity = Quantity
 
-mynode = node(9999,4)
-print (mynode.data)
