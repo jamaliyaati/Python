@@ -197,7 +197,7 @@ def delete(data):
 
 #   Remove the node from the linked list
     if Previous is None:
-        
+
 #       Delete the headnode
         HeadPointer = List[Pointer].Pointer
     else:
@@ -222,9 +222,6 @@ def displaylist():
     while Pointer is not None:
         print(List[Pointer].data,end=" ")
         Pointer = List[Pointer].Pointer
-
-
-
 def test():
     createlist()
     append("one")
@@ -234,7 +231,6 @@ def test():
     insert("twopointfive","two")
     displaylist()
     search("one")
-
 test()
 
 
