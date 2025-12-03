@@ -1,78 +1,83 @@
-
 Score = []
 Name = []
 
 def ReadHighScores():
-    global Name,Score
-    
+    global Name, Score
+
     try:
-        filename = "HighScore.txt"
-        file = open(filename,'r')
-        for i in range(10):
-            name = (file.readline().strip())
-            score = int((file.readline().strip()))
-            Name.append(name)
-            Score.append(score)
- 
-    except:
-        FileNotFoundError
-        print("file not found")
+        with open("HighScore.txt", "r") as file:
+            while True:
+                name = file.readline().strip()
+                if not name:   # EOF reached
+                    break
+                score = file.readline().strip()
+
+                Name.append(name)
+                Score.append(int(score))
+
+    except FileNotFoundError:
+        print("File not found: creating new high score list.")
 
 
 def OutPutHighScores():
-    global Name,Score
+    global Name, Score
 
-    for i in range(10):
-        print(Name[i],Score[i])
+    print("\n--- HIGH SCORES ---")
+    for i in range(len(Name)):
+        print(Name[i], Score[i])
 
 
 ReadHighScores()
 OutPutHighScores()
 
-NewName = input("enter a 3 letter name? ")
+# --- INPUT NEW SCORE ---
+NewName = input("Enter a 3 letter name: ").upper()
 while len(NewName) != 3:
-    NewName = input("please enter a 3 letter name?: ")
+    NewName = input("Please enter exactly 3 letters: ").upper()
 
-NewScore = int(input("enter the score between 1 and 100,000: "))
-while NewScore < 1 or NewScore > 100000:
-    NewScore = int(input("the score must be between 1 and 100,000: "))
+while True:
+    try:
+        NewScore = int(input("Enter the score between 1 and 100000: "))
+        if 1 <= NewScore <= 100000:
+            break
+        else:
+            print("Score must be between 1 and 100000.")
+    except ValueError:
+        print("Please enter a number.")
 
-def UpdateScores(nameP,ScoreP):
-    global Name,Score
+
+def UpdateScores(nameP, scoreP):
+    global Name, Score
 
     Name.append(nameP)
-    Score.append(ScoreP)
-    tempname = ""
-    tempscore = 0
+    Score.append(scoreP)
+
+    # SORT SCORES (DESCENDING)
     length = len(Name)
     for i in range(length):
-        for j in range(i + 1,length):
+        for j in range(i + 1, length):
             if Score[i] < Score[j]:
-                tempscore = Score[j]
-                Score[j] = Score[i]
-                Score[i] = tempscore
+                Score[i], Score[j] = Score[j], Score[i]
+                Name[i], Name[j] = Name[j], Name[i]
 
-                tempname = Name[j]
-                Name[j] = Name[i]
-                Name[i] = tempname
+    # KEEP ONLY TOP 10
+    del Name[10:]
+    del Score[10:]
 
 
-UpdateScores(NewName,NewScore)
+UpdateScores(NewName, NewScore)
 OutPutHighScores()
 
-def WriteTopTen(NameP,ScoreP):
-    
 
+def WriteTopTen(NameP, ScoreP):
     try:
-        filename = "NewHighScore.txt"
-        file = open(filename,'w')
-        for x in range(0,10):
-            file.write(str(NameP[x])+ '\n')
-            file.write(str(ScoreP[x])+ '\n')
-        file.close()
+        with open("NewHighScore.txt", "w") as file:
+            for x in range(len(NameP)):
+                file.write(NameP[x] + "\n")
+                file.write(str(ScoreP[x]) + "\n")
 
-    except:
-        FileNotFoundError
+    except Exception as e:
+        print("Error writing file:", e)
 
 
 WriteTopTen(Name, Score)
