@@ -15,6 +15,3 @@ def search(item):
             findpointer = pointer[findpointer]
     return findpointer
 
-
-
-
