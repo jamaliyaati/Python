@@ -83,3 +83,9 @@ class Linkedlist:
             
         # If the loop finishes without returning, the value is not in the list
         return -1
+    
+    def delete(self,target):
+        currentpointer = self.startpointer
+        while currentpointer != 1:
+            if self.thislist[currentpointer].data == target:
+                
