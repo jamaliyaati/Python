@@ -10,7 +10,7 @@ try:
     print(j)
 
 except NameError:
-        print("variable n ot defined")
+        print("variable not defined")
 
 except TypeError:
         print("wrong data type")
